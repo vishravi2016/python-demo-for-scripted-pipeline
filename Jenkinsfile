@@ -56,9 +56,17 @@ pipeline{
                     bat 'pip install -r requirements.txt'
                 }
             }
-            stage('tests'){
+            stage('unit tests'){
+                environment{
+                        TEST_TYPE='smoke'
+                    }
                 steps{
-                    bat 'pytest -v'
+                    bat '''
+                    echo Test type = %TEST_TYPE
+                    pytest -v
+                    '''
+
+                    
 
                 }
             }
