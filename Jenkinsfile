@@ -15,7 +15,7 @@ pipeline{
                     bat '''
                     echo Current Directory:
                     cd
-                    
+
                     echo Jenkins Workspace:
                     echo %WORKSPACE%
 
@@ -26,7 +26,7 @@ pipeline{
             }
             stage('install dependencies'){
                 steps{
-                    bat 'pip install -r requirement.txt'
+                    bat 'pip install -r requirements.txt'
                 }
             }
             stage('tests'){
