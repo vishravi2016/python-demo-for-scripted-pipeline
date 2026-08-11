@@ -1,6 +1,24 @@
 pipeline{
     agent any
         stages{
+
+            stage('PATH debug'){
+                steps{
+                    bat '''
+                    echo ==========================
+                    echo PATH
+                    echo ==========================
+                    echo %PATH%
+
+                    echo ==========================
+                    echo Python location
+                    echo ==========================
+                    where python
+
+
+                    '''
+                }
+            }
             stage('environment'){
                 steps{
                     bat '''
@@ -10,20 +28,20 @@ pipeline{
                     '''
                 }
             }
-            stage('workspace debug'){
-                steps{
-                    bat '''
-                    echo Current Directory:
-                    cd
+            // stage('workspace debug'){
+            //     steps{
+            //         bat '''
+            //         echo Current Directory:
+            //         cd
 
-                    echo Jenkins Workspace:
-                    echo %WORKSPACE%
+            //         echo Jenkins Workspace:
+            //         echo %WORKSPACE%
 
-                    echo Files available:
-                    dir
-                    '''
-                }
-            }
+            //         echo Files available:
+            //         dir
+            //         '''
+            //     }
+            // }
             stage('install dependencies'){
                 steps{
                     bat 'pip install -r requirements.txt'
