@@ -1,5 +1,8 @@
 pipeline{
     agent any
+    environment {
+        APP_ENV='test'
+    }
         stages{
 
             // stage('PATH debug'){
