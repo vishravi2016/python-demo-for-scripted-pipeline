@@ -2,21 +2,27 @@ pipeline{
     agent any
         stages{
 
-            stage('PATH debug'){
+            // stage('PATH debug'){
+            //     steps{
+            //         bat '''
+            //         echo ==========================
+            //         echo PATH
+            //         echo ==========================
+            //         echo %PATH%
+
+            //         echo ==========================
+            //         echo Python location
+            //         echo ==========================
+            //         where python
+
+
+            //         '''
+            //     }
+            // }
+
+            stage('Application environment'){
                 steps{
-                    bat '''
-                    echo ==========================
-                    echo PATH
-                    echo ==========================
-                    echo %PATH%
-
-                    echo ==========================
-                    echo Python location
-                    echo ==========================
-                    where python
-
-
-                    '''
+                    bat 'echo Application Environment= %APP_ENV%'
                 }
             }
             stage('environment'){
